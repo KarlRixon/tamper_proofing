@@ -10,15 +10,15 @@
 
 本项目使用Django+MySQL+bootstrap搭建了一个学生成绩查询网站，可以对数据库进行查询和插入
 
-![2](\img\2.png)
+![2](https://github.com/KarlRixon/tamper_proofing/blob/master/img/2.png)
 
 ![1](https://github.com/KarlRixon/tamper_proofing/blob/master/img/1.png)
 
 数据库中存放的是加密后的信息
 
-![3](\img\3.png)
+![3](https://github.com/KarlRixon/tamper_proofing/blob/master/img/3.png)
 
 若直接对数据库内容进行修改，网页中显示的信息为空，这时就会发现数据库遭到篡改
 
-![4](\img\4.png)
+![4](https://github.com/KarlRixon/tamper_proofing/blob/master/img/4.png)
 
