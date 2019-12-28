@@ -12,7 +12,7 @@
 
 ![2](\img\2.png)
 
-![1](\img\1.png)
+![1](https://github.com/KarlRixon/tamper_proofing/blob/master/img/1.png)
 
 数据库中存放的是加密后的信息
 
