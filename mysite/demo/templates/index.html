@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>online_retailer</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <h1>简单学生成绩查询系统</h1>
+        <p><form role="form" action="index" method="post">
+            <div class="input-group" style="width:60%;float:left">
+                <span class="input-group-addon" id="basic-addon1">姓名</span>
+                {% csrf_token %}
+                <input type="text" class="form-control" name="name" placeholder="张三" aria-describedby="basic-addon1">
+            </div>
+            <input class="btn btn-primary btn-lg" type="submit" value="学生成绩查询" role="button" style="width:30%:float:right;">
+        </form>
+        </p>
+        <p><form role="form" action="index" method="post">
+            <div class="input-group" style="width:60%;float:left">
+                <span class="input-group-addon" id="basic-addon2">学号</span>
+                {% csrf_token %}
+                <input type="text" class="form-control" name="no" placeholder="1" aria-describedby="basic-addon1">
+            </div>
+            <input class="btn btn-primary btn-lg" type="submit" value="学生成绩查询" role="button" style="width:30%:float:right;">
+        </form>
+        </p>
+        </p>
+        <p><form role="form" action="index" method="post">
+            <div class="input-group" style="width:20%;float:left">
+                <span class="input-group-addon" id="basic-addon3-1">姓名</span>
+                {% csrf_token %}
+                <input type="text" class="form-control" name="nname" placeholder="王五" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group" style="width:20%;float:left">
+                <span class="input-group-addon" id="basic-addon3-2">学号</span>
+                {% csrf_token %}
+                <input type="text" class="form-control" name="nno" placeholder="3" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group" style="width:20%;float:left">
+                <span class="input-group-addon" id="basic-addon3-3">成绩</span>
+                {% csrf_token %}
+                <input type="text" class="form-control" name="ngrade" placeholder="6" aria-describedby="basic-addon1">
+            </div>
+            <input class="btn btn-primary btn-lg" type="submit" value="录入成绩记录" role="button" style="width:30%:float:right;">
+        </form>
+        </p>
+        <p><form role="form" action="index" method="post">
+            <div class="input-group" style="width:60%;float:left;display: none;">
+                <span class="input-group-addon" id="basic-addon4">所有</span>
+                {% csrf_token %}
+                <input type="text" class="form-control" name="all" value="all" aria-describedby="basic-addon1">
+            </div>
+            <input class="btn btn-primary btn-lg" type="submit" value="查询所有记录" role="button" style="width:30%:float:right;">
+        </form>
+        </p>
+        {% if s %}
+        <div class="panel panel-default">
+            <div class="panel-heading">{{sn}}的成绩</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>学生姓名</th>
+                        <th>学生学号</th>
+                        <th>学生成绩</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in sr %}
+                    <tr>
+                        <td>{{item.0}}</td>
+                        <td>{{item.1}}</td>
+                        <td>{{item.2}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% elif n %}
+        <div class="panel panel-default">
+            <div class="panel-heading">学号{{sn}}的成绩</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>学生姓名</th>
+                        <th>学生学号</th>
+                        <th>学生成绩</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in sr %}
+                    <tr>
+                        <td>{{item.0}}</td>
+                        <td>{{item.1}}</td>
+                        <td>{{item.2}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% elif insert %}
+        <div class="panel panel-default">
+            <div class="panel-heading">成绩录入成功</div>
+        </div>
+        {% elif all %}
+        <div class="panel panel-default">
+            <div class="panel-heading">{{sn}}的成绩</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>学生姓名</th>
+                        <th>学生学号</th>
+                        <th>学生成绩</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in sr %}
+                    <tr>
+                        <td>{{item.0}}</td>
+                        <td>{{item.1}}</td>
+                        <td>{{item.2}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<p style="float:right;margin-right:10%">developed by KarlRixon</p>
+</body>
+</html>
